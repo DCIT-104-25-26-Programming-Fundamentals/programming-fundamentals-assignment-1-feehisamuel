@@ -79,3 +79,46 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def transpose_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    result = []
+    for j in range(cols):
+     new_row = []
+
+    for i in range(rows):
+        new_row.append(matrix[i][j])
+
+    result.append(new_row)
+
+    return result
+
+def add_matrices(matrix1, matrix2):
+    rows = len(matrix1)
+    cols = len(matrix1[0])
+    result = []
+
+    for i in range(rows):
+        row = []
+
+        for j in range(cols):
+            row.append(matrix1[i][j] + matrix2[i][j])
+
+        result.append(row)
+
+    return result
+
+    for i in range(rows1):
+        row = []
+
+        for j in range(cols2):
+            total = 0
+
+            for k in range(cols1):
+                total += matrix1[i][k] * matrix2[k][j]
+
+            row.append(total)
+
+        result.append(row)
+
+    return result
