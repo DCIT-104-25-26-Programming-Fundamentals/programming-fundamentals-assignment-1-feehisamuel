@@ -79,46 +79,47 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def transpose_matrix(matrix):
-    rows = len(matrix)
-    cols = len(matrix[0])
-    result = []
-    for j in range(cols):
-     new_row = []
+def delete_task(tasks):
+    if len(tasks) == 0:
+        print("No tasks to delete.")
+        return
 
-    for i in range(rows):
-        new_row.append(matrix[i][j])
+    view_tasks(tasks)
 
-    result.append(new_row)
+    task_number = int(input("Enter task number to delete: "))
 
-    return result
+    if 1 <= task_number <= len(tasks):
+        removed = tasks.pop(task_number - 1)
+        print(f'Task "{removed}" has been removed.')
+    else:
+        print("Invalid task number.") 
 
-def add_matrices(matrix1, matrix2):
-    rows = len(matrix1)
-    cols = len(matrix1[0])
-    result = []
+tasks = []
 
-    for i in range(rows):
-        row = []
+while True:
+    print("\n==========================")
+    print("  TO-DO LIST MENU")
+    print("==========================")
+    print("1. Add task")
+    print("2. View tasks")
+    print("3. Delete task")
+    print("4. Quit")
 
-        for j in range(cols):
-            row.append(matrix1[i][j] + matrix2[i][j])
+    choice = input("Enter your choice (1-4): ")
 
-        result.append(row)
+    if choice == "1":
+        add_task(tasks)
 
-    return result
+    elif choice == "2":
+        view_tasks(tasks)
 
-    for i in range(rows1):
-        row = []
+    elif choice == "3":
+        delete_task(tasks)
 
-        for j in range(cols2):
-            total = 0
+    elif choice == "4":
+        print("Goodbye!")
+        break
 
-            for k in range(cols1):
-                total += matrix1[i][k] * matrix2[k][j]
+    else:
+        print("Invalid choice. Please try again.")
 
-            row.append(total)
-
-        result.append(row)
-
-    return result
